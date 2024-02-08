@@ -3,6 +3,7 @@
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	export let data;
 	console.log(data);
+	let year = new Date().getFullYear();
 </script>
 
 <svelte:head>
@@ -10,21 +11,36 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<p>SpaceX progress </p>
-</section>
+<main>
+	<h1>SpaceX 2024 progress</h1>
+	<div>
+		<p><i>🚀</i><span>{data.F9}</span>x Falcon 9</p>
+		<p><i>🚀</i><span>{data.F9}</span>x Falcon Heavy</p>
+		<p><i>🚀</i><span>{data.F9}</span>x Starship</p>
+		<p><i>🐉</i><span>{data.F9}</span>x Dragon (<span>{data.F9}</span>x <i>🧑‍🚀‍</i>, <span>{data.F9}</span>x <i>📦</i>)</p>
+		<p><i>🛰️</i><span>{data.F9}</span>x Starlink</p>
+	</div>
 
 
-<div>
-	<p>{data.F9}</p>
-</div>
+</main>
+
 
 <style>
-	section {
+	h1	{
+		font-weight: bolder;
+		font-size: 3rem;
+	}
+	main {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		margin-top: 2rem;
 		align-items: center;
+		gap: 2rem;
 		flex: 0.6;
 	}
+	p {
+		font-size: 2rem;
+		line-height: 1.5;
+	}
+
 </style>
