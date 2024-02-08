@@ -1,6 +1,8 @@
 <script>
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	export let data;
+	console.log(data);
 </script>
 
 <svelte:head>
@@ -11,6 +13,11 @@
 <section>
 	<p>SpaceX progress </p>
 </section>
+
+
+<div>
+	<p>{data.F9}</p>
+</div>
 
 <style>
 	section {
