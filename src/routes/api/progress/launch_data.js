@@ -18,6 +18,9 @@ function getApiData(url) {
             if (response.ok) {
                 //logger.log('info', `response = ok`)
                 return response.json();
+            } else if (response.status === 429) {
+                //logger.log('info', `response != ok`)
+                throw new Error('Rate limit exceeded');
             } else {
                 //logger.log('info', `response != ok`)
                 return null;
@@ -25,7 +28,7 @@ function getApiData(url) {
         })
         .catch(error => {
             //logger.log('error', `Error fetching data: ${error.message}`)
-            return null;
+            throw new Error(error.message);
         });
 }
 
@@ -80,10 +83,11 @@ async function getAllLauncherData() {
 async function getLatestLaunch() {
     try {
         const mostRecentLaunchUrl = `${base_url}lsp__id=${lsp_id}&year=${year}&limit=1`;
-        console.log(mostRecentLaunchUrl)
-        return await getApiData(mostRecentLaunchUrl)
+        const response = await getApiData(mostRecentLaunchUrl);
+        return response.results[0];
     } catch (error) {
-        //logger.log('error', error)
+        console.log(`Error getting latest launch: ${error.message}`)
+        throw new Error(error.message);
     }
 }
 
