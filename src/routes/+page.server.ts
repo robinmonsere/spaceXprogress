@@ -12,6 +12,10 @@ const kv = createClient({
 // @ts-ignore
 export async function load({ locals }) {
      return {
-          F9: await kv.get('F9')
+          F9: await kv.get('falcon9'),
+          FH: await kv.get('falconH'),
+          Starship: await kv.get('starship'),
+          Crew: await kv.get('dragonCrew'),
+          Cargo: await kv.get('dragonCargo'),
      }
 }

@@ -15,10 +15,10 @@
 	<h1>SpaceX 2024 progress</h1>
 	<div>
 		<p><i>🚀</i><span>{data.F9}</span>x Falcon 9</p>
-		<p><i>🚀</i><span>{data.F9}</span>x Falcon Heavy</p>
-		<p><i>🚀</i><span>{data.F9}</span>x Starship</p>
-		<p><i>🐉</i><span>{data.F9}</span>x Dragon (<span>{data.F9}</span>x <i>🧑‍🚀‍</i>, <span>{data.F9}</span>x <i>📦</i>)</p>
-		<p><i>🛰️</i><span>{data.F9}</span>x Starlink</p>
+		<p><i>🚀</i><span>{data.FH}</span>x Falcon Heavy</p>
+		<p><i>🚀</i><span>{data.Starship}</span>x Starship</p>
+		<p><i>🐉</i><span>{data.Crew + data.Cargo}</span>x Dragon (<span>{data.Crew}</span>x <i>🧑‍🚀‍</i>, <span>{data.Cargo}</span>x <i>📦</i>)</p>
+		<p><i>🛰️</i><span>--</span>x Starlink</p>
 	</div>
 
 

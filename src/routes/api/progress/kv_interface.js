@@ -1,4 +1,4 @@
-import {createClient, kv} from "@vercel/kv";
+import {createClient} from "@vercel/kv";
 
 import { KV_REST_API_URL, KV_REST_API_TOKEN } from '$env/static/private';
 //console.log(KV_REST_API_TOKEN)
@@ -15,9 +15,9 @@ async function getData() {
             F9: await kv.get('falcon9'),
             FH: await kv.get('falconH'),
             Starship: await kv.get('starship'),
-            cargo: await kv.get('dragonCargo'),
-            crew: await kv.get('dragonCrew'),
-            starlink: await kv.get('starlink'),
+            Cargo: await kv.get('dragonCargo'),
+            Crew: await kv.get('dragonCrew'),
+            Starlink: await kv.get('starlink'),
         };
     } catch (error) {
         console.error('Error retrieving data:', error);
@@ -32,14 +32,28 @@ async function getSavedLaunchID() {
     }
 }
 
-// Define an async function to save data to the Key-Value store
-async function saveData(key, value) {
+async function saveLaunchId(id) {
     try {
-        await kv.set(key, value);
+        await kv.set('latestLaunchID', id);
+    } catch (error) {
+        console.error('Error saving launch ID:', error);
+    }
+}
+
+// Define an async function to save data to the Key-Value store
+async function saveData(data) {
+    try {
+        await kv.set("falcon9", data.F9);
+        await kv.set("falconH", data.FH);
+        await kv.set("starship", data.Starship);
+        await kv.set("dragonCargo", data.Cargo);
+        await kv.set("dragonCrew", data.Crew);
+        await kv.set("starlink", data.Starlink);
+        await kv.set("latestLaunchID", data.latestLaunchID);
     } catch (error) {
         console.error('Error saving data:', error);
     }
 }
 
 // Example usage: Retrieve data associated with the key 'myData'
-export {getData, saveData, getSavedLaunchID}
+export {getData, saveData, getSavedLaunchID, saveLaunchId}

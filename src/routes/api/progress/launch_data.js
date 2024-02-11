@@ -1,5 +1,5 @@
 
-const base_url = "https://lldev.thespacedevs.com/2.2.0/launch/previous/?";
+const base_url = "https://ll.thespacedevs.com/2.2.0/launch/previous/?";
 const year = "2024";
 
 const spacecraft_config_id_crew_dragon = "6";
@@ -8,8 +8,6 @@ const launcher_config_id_falcon_9 = "164";
 const launcher_config_id_falcon_heavy = "161";
 const launcher_config_id_starship = "464";
 const lsp_id = "121";
-
-const SAVE_FILE_PATH = './lib/latestLaunchId.txt';
 
 function getApiData(url) {
     //logger.log('info', `requesting data from: ${url}`)
@@ -20,6 +18,7 @@ function getApiData(url) {
                 return response.json();
             } else if (response.status === 429) {
                 //logger.log('info', `response != ok`)
+                console.log('Rate limit exceeded');
                 throw new Error('Rate limit exceeded');
             } else {
                 //logger.log('info', `response != ok`)

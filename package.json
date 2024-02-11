@@ -21,6 +21,10 @@
 	"type": "module",
 	"dependencies": {
 		"@vercel/kv": "^1.0.1",
+		"axios": "^1.6.7",
+		"fs": "^0.0.1-security",
+		"image-type": "^5.2.0",
+		"request": "^2.88.2",
 		"twitter-api-v2": "^1.16.0"
 	}
 }
