@@ -22,13 +22,16 @@
 	</div>
 
 	<div class="progress">
-
 		<div id="progress_bar">
 			<Progressbar  size="h-16" progress={(total/148) * 100}/>
 		</div>
 		<div>
 			<h2>{total}/148</h2>
 		</div>
+	</div>
+
+	<div id="posts">
+
 	</div>
 
 </main>
