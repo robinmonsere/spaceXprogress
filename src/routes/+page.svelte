@@ -1,9 +1,9 @@
 <script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	export let data;
-	console.log(data);
+	let total = data.F9 + data.FH + data.Starship;
 	let year = new Date().getFullYear();
+	import { Progressbar } from 'flowbite-svelte';
+	import logo from '$lib/images/sxlogo.png';
 </script>
 
 <svelte:head>
@@ -12,7 +12,7 @@
 </svelte:head>
 
 <main>
-	<h1>SpaceX 2024 progress</h1>
+	<h1>SpaceX {year} progress</h1>
 	<div>
 		<p><i>🚀</i><span>{data.F9}</span>x Falcon 9</p>
 		<p><i>🚀</i><span>{data.FH}</span>x Falcon Heavy</p>
@@ -21,11 +21,21 @@
 		<p><i>🛰️</i><span>--</span>x Starlink</p>
 	</div>
 
+	<div class="progress">
+
+		<div id="progress_bar">
+			<Progressbar  size="h-16" progress={(total/148) * 100}/>
+		</div>
+		<div>
+			<h2>{total}/148</h2>
+		</div>
+	</div>
 
 </main>
 
 
-<style>
+
+<style lang="scss">
 	h1	{
 		font-weight: bolder;
 		font-size: 3rem;
@@ -42,5 +52,21 @@
 		font-size: 2rem;
 		line-height: 1.5;
 	}
+
+	.progress {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1rem;
+		width: 80%;
+		h2 {
+			font-size: 4rem;
+		}
+		#progress_bar {
+			width: 100%;
+		}
+	}
+
+
 
 </style>

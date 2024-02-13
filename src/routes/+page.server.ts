@@ -7,10 +7,7 @@ const kv = createClient({
      token: KV_REST_API_TOKEN,
 });
 
-//kv.set('F9', 8);
-
-// @ts-ignore
-export async function load({ locals }) {
+export async function load() {
      return {
           F9: await kv.get('falcon9'),
           FH: await kv.get('falconH'),
