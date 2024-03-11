@@ -1,9 +1,29 @@
 <script>
+	import {onMount} from "svelte";
+
 	export let data;
 	let total = data.F9 + data.FH + data.Starship;
 	let year = new Date().getFullYear();
 	import { Progressbar } from 'flowbite-svelte';
 	import logo from '$lib/images/sxlogo.png';
+
+	let tweetHtml = '';
+
+	const username = 'SpaceX_Deimos';
+	const tweetId = '756219039381082509';
+	const oEmbedUrl = `https://publish.twitter.com/oembed?url=https://twitter.com/${username}/status/${tweetId}`;
+
+	onMount(async () => {
+		try {
+			const urlParam = encodeURIComponent('https://twitter.com/SpaceX_Deimos/status/756219039381082509');
+			const response = await fetch(`/api/embed_post?${urlParam}`);
+
+			const data = await response.json();
+			tweetHtml = data.html;
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -30,9 +50,7 @@
 		</div>
 	</div>
 
-	<div id="posts">
-
-	</div>
+	<div>{@html tweetHtml}</div>
 
 </main>
 
