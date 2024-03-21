@@ -17,7 +17,7 @@ export async function GET() {
             console.log("No saved launch ID found, saving latest launch ID");
             await saveLaunchId(latestLaunch.id);
         } else if (latestLaunch.id === latestSavedID) {
-            console.log(`No new launch. Latest launch ID: ${latestLaunch.id}, latest saved ID: ${latestSavedID}`);
+            console.log(`No new launch. Latest launch ID: ${latestLaunch.id}, latest saved ID: ${latestSavedID} \n\n data: ${latestLaunch}`);
             return new Response(`No new launch. Latest launch ID: ${latestLaunch.id}, latest saved ID: ${latestSavedID}`);
         } else {
             console.log('New launch detected!, trying to handle new launch');

@@ -81,7 +81,7 @@ async function getAllLauncherData() {
 
 async function getLatestLaunch() {
     try {
-        const mostRecentLaunchUrl = `${base_url}lsp__id=${lsp_id}&year=${year}&limit=1`;
+        const mostRecentLaunchUrl = `${base_url}lsp__id=${lsp_id}&year=${year}&limit=1&mode=detailed`;
         const response = await getApiData(mostRecentLaunchUrl);
         return response.results[0];
     } catch (error) {
