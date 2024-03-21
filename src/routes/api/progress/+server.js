@@ -56,7 +56,7 @@ async function handleNewLaunch(launch) {
 }
 
 function finalizeData(launchData, launch) {
-    launchData.total = launchData.F9 + launchData.FH + launchData.Starship;
+    launchData.total = launchData.F9 + launchData.FH;
     launchData.latest = launch.name;
     launchData.image = launch.image;
     launchData.latestLaunchID = launch.id;
