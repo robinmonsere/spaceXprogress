@@ -21,7 +21,7 @@ async function postToX(launchData) {
         `${Rocket} @SpaceX just launched ${launchData.latest}\n${launchBar} ${launchData.total}/148 (${launchPercentage}%)\n\n${hourGlass} 2024 is ${yearPercentage}% complete\n${timeBar} ${yearPercentage}%`
 
     const secondPost =
-        `The 2024 goal for @SpaceX is 148 launches.\nThis is 50 launches more than 2023.\n\n2024 stats:\n${Rocket} ${launchData.F9}x F9\n${Rocket} ${launchData.FH}x FH\n${Rocket} ${launchData.Starship}x Starship\n${Dragon} ${launchData.Cargo + launchData.Crew}x Dragon ( ${launchData.Crew}x ${Astronaut}, ${launchData.Cargo}x ${Package})\nWill #SpaceX complete the 148 launches in 2024?`
+        `The 2024 goal for @SpaceX is 148 launches (Falcon).\nThis is 52 launches more than 2023.\n\n2024 stats:\n${Rocket} ${launchData.F9}x F9\n${Rocket} ${launchData.FH}x FH\n${Rocket} ${launchData.Starship}x Starship\n${Dragon} ${launchData.Cargo + launchData.Crew}x Dragon ( ${launchData.Crew}x ${Astronaut}, ${launchData.Cargo}x ${Package})\nWill #SpaceX complete the 148 launches in 2024?`
 
     const client = new TwitterApi({
         appKey: X_CONSUMER_KEY,
